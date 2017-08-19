@@ -5,3 +5,42 @@ html {
 body {
     font-family: 'Fjalla One', sans-serif;
 }
+
+li {
+    width: 25%;
+    display: inline-block;
+    list-style: none;
+    margin: 10px;
+    padding-top: 20px;
+    text-align: center;
+    vertical-align: top;
+    background-color: aliceblue;
+}
+
+main {
+    text-align: center;
+}
+
+.js-query {
+    height: 30px;
+    font-size: 1.5rem;
+    padding: 10px;
+    text-align: center;
+}
+
+button {
+    width: 100px;
+    height: 30px;
+    background-color: #ffe96A;
+    box-shadow: 5px 5px 10px #cccccc;
+    border-radius: 20px;
+}
+
+label,
+span {
+    color: gray;
+}
+
+p {
+    margin: 5px auto;
+}

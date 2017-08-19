@@ -2,8 +2,8 @@ $(document).ready(function () {
 
     $(".js-search-form").submit(function (event) {
         event.preventDefault();
-        var searchTerm = $(".js-query").val();
         console.log(searchTerm);
+        var searchTerm = $(".js-query").val();
         getVideos(searchTerm)
     })
 
@@ -11,7 +11,7 @@ $(document).ready(function () {
         $.getJSON("https://www.googleapis.com/youtube/v3/search", {
                 key: "AIzaSyCJn4EgqP8i7Gt5S8yV1QGRFfXt53khN8k",
                 part: "snippet",
-                maxResults: 10,
+                maxResults: 12,
                 q: searchTerm,
                 type: "video"
             },
@@ -21,24 +21,24 @@ $(document).ready(function () {
                     alert("No videos found!")
                 } else {
                     console.log(cake.items);
-                    displayResults(cake.items)
+                    displayResults(cake.items, searchTerm)
                 }
             }
         )
     }
 
-    function displayResults(videoList) {
-
+    function displayResults(videoList, searchTerm) {
         $.each(videoList, function (key, value) {
             $(".js-search-results").append(`
                             <li>
-                                <p>${value.snippet.title}</p>
                                 <a href='https://www.youtube.com/watch?v=${value.id.videoID} target='blank'>
                                 <img src='${value.snippet.thumbnails.medium.url}'/>
                                 </a>
+                                <p>${value.snippet.title}</p>
                             </li>
                         `)
 
         })
+        $("h2").text(`So you like ${searchTerm}, eh? Well, here it is!`);
     }
 })
