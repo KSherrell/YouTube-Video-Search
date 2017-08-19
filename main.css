@@ -6,29 +6,22 @@ body {
     font-family: 'Fjalla One', sans-serif;
 }
 
-li {
-    width: 25%;
-    display: inline-block;
-    list-style: none;
-    margin: 10px;
-    padding-top: 20px;
-    text-align: center;
-    vertical-align: top;
-    background-color: aliceblue;
-}
-
 main {
     text-align: center;
 }
 
-.js-query {
+main form .js-query {
     height: 30px;
     font-size: 1.5rem;
     padding: 10px;
     text-align: center;
 }
 
-button {
+main form p {
+    margin: 5px auto;
+}
+
+main form p button {
     width: 100px;
     height: 30px;
     background-color: #ffe96A;
@@ -36,11 +29,19 @@ button {
     border-radius: 20px;
 }
 
-label,
-span {
-    color: gray;
+main div ul li {
+    width: 25%;
+    display: inline-block;
+    list-style: none;
+    margin: 10px;
+    padding: 20px;
+    text-align: center;
+    vertical-align: top;
 }
 
-p {
-    margin: 5px auto;
+@media only screen and (max-width: 640px) {
+    main div ul li {
+        width: 100%;
+        display: block;
+    }
 }

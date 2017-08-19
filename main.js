@@ -1,10 +1,12 @@
+"use strict";
+
 $(document).ready(function () {
 
     $(".js-search-form").submit(function (event) {
         event.preventDefault();
-        console.log(searchTerm);
         var searchTerm = $(".js-query").val();
-        getVideos(searchTerm)
+        console.log(searchTerm);
+        getVideos(searchTerm);
     })
 
     function getVideos(searchTerm) {
@@ -28,17 +30,21 @@ $(document).ready(function () {
     }
 
     function displayResults(videoList, searchTerm) {
+
+        var htmlOutput = "";
         $.each(videoList, function (key, value) {
-            $(".js-search-results").append(`
+
+            htmlOutput += `
                             <li>
                                 <a href='https://www.youtube.com/watch?v=${value.id.videoID} target='blank'>
                                 <img src='${value.snippet.thumbnails.medium.url}'/>
                                 </a>
                                 <p>${value.snippet.title}</p>
                             </li>
-                        `)
+                        `;
 
-        })
-        $("h2").text(`So you like ${searchTerm}, eh? Well, here it is!`);
+        });
+        $(".js-search-results ul").html(htmlOutput);
+        $("h2").text(`So you like ${searchTerm}, eh? Well, look what we have here!`);
     }
 })
