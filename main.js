@@ -5,7 +5,7 @@ $(document).ready(function () {
     $(".js-search-form").submit(function (event) {
         event.preventDefault();
         var searchTerm = $(".js-query").val();
-        console.log(searchTerm);
+        console.log(searchTerm + " is the searchTerm");
         getVideos(searchTerm);
     })
 
@@ -18,11 +18,9 @@ $(document).ready(function () {
                 type: "video"
             },
             function (cake) {
-                console.log(cake);
                 if (cake.pageInfo.totalResults == 0) {
                     alert("No videos found!")
                 } else {
-                    console.log(cake.items);
                     displayResults(cake.items, searchTerm)
                 }
             }
@@ -33,10 +31,9 @@ $(document).ready(function () {
 
         var htmlOutput = "";
         $.each(videoList, function (key, value) {
-
             htmlOutput += `
                             <li>
-                                <a href='https://www.youtube.com/watch?v=${value.id.videoID} target='blank'>
+                                <a href='https://www.youtube.com/watch?v=${value.id.videoId} target='blank'>
                                 <img src='${value.snippet.thumbnails.medium.url}'/>
                                 </a>
                                 <p>${value.snippet.title}</p>
@@ -45,6 +42,6 @@ $(document).ready(function () {
 
         });
         $(".js-search-results ul").html(htmlOutput);
-        $("h2").text(`So you like ${searchTerm}, eh? Well, look what we have here!`);
+        $("h2").text(`Voila! Here are some ${searchTerm} videos for you to watch!`);
     }
 })
