@@ -34,7 +34,7 @@ $(document).ready(function () {
             htmlOutput += `
                             <li>
                                 <a href='https://www.youtube.com/watch?v=${value.id.videoId} target='blank'>
-                                <img src='${value.snippet.thumbnails.medium.url}' alt="#${key+1} photo of ${searchTerm}."/>
+                                <img src='${value.snippet.thumbnails.medium.url}' alt="${searchTerm} photo #${key+1}."/>
                                 </a>
                                 <p>${value.snippet.title}</p>
                             </li>
@@ -42,6 +42,6 @@ $(document).ready(function () {
 
         });
         $(".js-search-results ul").html(htmlOutput);
-        $("h2").text(`Voila! Here are some ${searchTerm} videos for you to watch!`);
+        $("h2").text(`Voila! Here are 12 ${searchTerm} videos for you to enjoy!`);
     }
 })
