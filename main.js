@@ -34,7 +34,7 @@ $(document).ready(function () {
             htmlOutput += `
                             <li>
                                 <a href='https://www.youtube.com/watch?v=${value.id.videoId} target='blank'>
-                                <img src='${value.snippet.thumbnails.medium.url}'/>
+                                <img src='${value.snippet.thumbnails.medium.url}' alt="#${key+1} photo of ${searchTerm}."/>
                                 </a>
                                 <p>${value.snippet.title}</p>
                             </li>
